@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurdev Singh | Integration Architect</title>
+    <style>
+        :root {
+            --bg: #fffaf5; /* Soft Cream */
+            --header-text: #2d4059;
+            --body-text: #4a4a4a;
+            --pastel-blue: #d1e8ff;
+            --pastel-orange: #ffe0b2;
+            --pastel-green: #c8e6c9;
+            --pastel-purple: #e1bee7;
+            --accent: #8eacbb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--body-text);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        main { max-width: 900px; width: 100%; }
+
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { color: var(--header-text); font-size: 2.5rem; margin-bottom: 5px; }
+        .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 300; }
+
+        /* Infographic Styles */
+        .infographic-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hub-spoke-svg { width: 100%; max-width: 600px; height: auto; }
+
+        /* Grid Layout for Content */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+        }
+
+        h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--header-text); }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+
+        .links-section {
+            grid-column: span 2;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .links-section a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--header-text);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .links-section a:hover { color: var(--accent); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .links-section { grid-column: span 1; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <h1>Gurdev Singh</h1>
+        <div class="tagline">Senior Integrations Engineer | Azure Ecosystem</div>
+    </header>
+
+    <div class="infographic-container">
+        <svg viewBox="0 0 600 300" class="hub-spoke-svg">
+            <circle cx="300" cy="150" r="45" fill="var(--pastel-blue)" />
+            <text x="300" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d4059">AZURE HUB</text>
+            
+            <line x1="255" y1="150" x2="150" y2="100" stroke="#ddd" stroke-width="2" />
+            <line x1="255" y1="150" x2="150" y2="200" stroke="#ddd" stroke-width="2" />
+            <line x1="345" y1="150" x2="450" y2="80" stroke="#ddd" stroke-width="2" />
+            <line x1="345" y1="150" x2="450" y2="150" stroke="#ddd" stroke-width="2" />
+            <line x1="345" y1="150" x2="450" y2="220" stroke="#ddd" stroke-width="2" />
+
+            <rect x="50" y="75" width="100" height="40" rx="10" fill="var(--pastel-orange)" />
+            <text x="100" y="100" text-anchor="middle" font-size="10">Source A</text>
+            
+            <rect x="50" y="180" width="100" height="40" rx="10" fill="var(--pastel-orange)" />
+            <text x="100" y="205" text-anchor="middle" font-size="10">Source B</text>
+
+            <rect x="450" y="60" width="100" height="40" rx="10" fill="var(--pastel-green)" />
+            <text x="500" y="85" text-anchor="middle" font-size="10">System Y1</text>
+            
+            <rect x="450" y="130" width="100" height="40" rx="10" fill="var(--pastel-green)" />
+            <text x="500" y="155" text-anchor="middle" font-size="10">System Y2</text>
+            
+            <rect x="450" y="200" width="100" height="40" rx="10" fill="var(--pastel-green)" />
+            <text x="500" y="225" text-anchor="middle" font-size="10">System Y3</text>
+        </svg>
+    </div>
+
+    <div class="content-grid">
+        <section class="card">
+            <h2>About</h2>
+            <ul>
+                <li>Bridging business needs & technical builds</li>
+                <li>Design logic for complex data flows</li>
+                <li>Managing offshore delivery & error handling</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Primary Stack</h2>
+            <ul>
+                <li>Azure Logic Apps & Function Apps</li>
+                <li>SAP, Boomi, MuleSoft & Workday</li>
+                <li>AI-Assisted Development workflows</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Piano</h2>
+            <p>Listen to <a href="https://on.soundcloud.com/or1uzZcAB4Nz3WrJbF" target="_blank">The Reinterpretation Tapes</a> on SoundCloud.</p>
+        </section>
+
+        <section class="card">
+            <h2>Speedcubing</h2>
+            <p>Check out my competitive stats on my <a href="https://www.worldcubeassociation.org/persons/2019SING35" target="_blank">WCA Profile</a>.</p>
+        </section>
+
+        <footer class="links-section">
+            <a href="https://www.linkedin.com/in/gurd3v/">LinkedIn</a>
+            <a href="https://github.com/gdev07">GitHub</a>
+            <a href="mailto:your-email@example.com">Email</a>
+        </footer>
+    </div>
+</main>
+
+</body>
+</html>
