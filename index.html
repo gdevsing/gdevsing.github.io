@@ -3,955 +3,918 @@
 <head>
   <!--
   ╔══════════════════════════════════════════════════════╗
-  ║         GURDEV SINGH — PROFESSIONAL PROFILE          ║
-  ║                 GitHub Pages Deploy                  ║
-  ╠══════════════════════════════════════════════════════╣
-  ║  DEPLOY IN 3 STEPS:                                  ║
-  ║  1. Create a repo named: yourusername.github.io      ║
-  ║     (or any repo name for project pages)             ║
-  ║  2. Upload this index.html to the root of main       ║
-  ║  3. Go to Settings → Pages → Deploy from main /root  ║
-  ║     Your site will be live in ~60 seconds ✓          ║
+  ║      GURDEV SINGH — LOGIC APP PROFILE                ║
+  ║      Deploy: repo → main → Settings → Pages         ║
   ╚══════════════════════════════════════════════════════╝
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gurdev Singh — Senior Integrations Engineer</title>
+  <title>Gurdev Singh — Integrations Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── TOKENS ─────────────────────────────────────────── */
+    /* ── TOKENS ─────────────────────────────── */
     :root {
-      --sage:       #b5c9b7;
-      --sage-light: #d6e6d8;
-      --sage-pale:  #eef5ef;
-      --peach:      #f0c9b0;
-      --peach-light:#f9e4d6;
-      --blush:      #e8b4b8;
-      --lavender:   #c5b8d8;
-      --sky:        #a8cfe0;
-      --sky-light:  #d6ecf5;
-      --cream:      #faf8f4;
-      --text:       #2d2d2d;
-      --text-mid:   #5a5a5a;
-      --text-soft:  #8a8a8a;
-      --white:      #ffffff;
-      --radius:     16px;
-      --radius-sm:  10px;
-      --shadow:     0 4px 24px rgba(0,0,0,0.07);
-      --shadow-lg:  0 8px 40px rgba(0,0,0,0.10);
-      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --bg:         #0f1117;
+      --surface:    #161b27;
+      --surface2:   #1e2535;
+      --border:     #2a3347;
+      --border-lit: #3d4f6e;
+
+      --blue:       #4f9cf9;
+      --blue-glow:  rgba(79,156,249,0.18);
+      --blue-pale:  rgba(79,156,249,0.08);
+      --green:      #4caf82;
+      --green-glow: rgba(76,175,130,0.15);
+      --orange:     #f0a050;
+      --orange-glow:rgba(240,160,80,0.15);
+      --purple:     #a78bfa;
+      --purple-glow:rgba(167,139,250,0.15);
+      --pink:       #f472b6;
+      --teal:       #2dd4bf;
+
+      --text:       #e2e8f4;
+      --text-mid:   #8b9ab8;
+      --text-soft:  #4a5568;
+
+      --connector:  #2a3347;
+      --dot:        #4f9cf9;
+
+      --radius:     12px;
+      --radius-sm:  8px;
     }
 
-    /* ── RESET ──────────────────────────────────────────── */
+    /* ── RESET ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--cream);
+      font-family: 'Syne', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      min-height: 100vh;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    img { display: block; max-width: 100%; }
 
-    /* ── NOISE TEXTURE OVERLAY ──────────────────────────── */
+    /* ── GRID BACKGROUND ────────────────────── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image:
+        linear-gradient(rgba(79,156,249,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,156,249,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
+      z-index: 0;
     }
 
-    /* ── NAV ────────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      background: rgba(250, 248, 244, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(181,201,183,0.3);
-      transition: box-shadow var(--transition);
-    }
-    nav.scrolled { box-shadow: var(--shadow); }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    .nav-logo span { color: var(--sage); }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-mid);
-      letter-spacing: 0.02em;
+    /* ── LAYOUT ─────────────────────────────── */
+    .page {
       position: relative;
-      transition: color var(--transition);
+      z-index: 1;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
     }
-    .nav-links a::after {
+
+    /* top breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      animation: fadeIn 0.5s ease both;
+    }
+    .breadcrumb span { color: var(--blue); }
+    .breadcrumb .sep { color: var(--text-soft); }
+
+    /* status bar */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem 1rem;
+      margin-bottom: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      animation: fadeIn 0.5s 0.1s ease both;
+    }
+    .status-left { display: flex; align-items: center; gap: 0.75rem; }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+      50%      { opacity: 0.6; box-shadow: 0 0 3px var(--green); }
+    }
+    .status-right { color: var(--text-soft); }
+
+    /* ── CONNECTOR LINE ─────────────────────── */
+    .connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      width: 2px;
+      height: 32px;
+      position: relative;
+    }
+    .connector::before {
       content: '';
       position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 2px;
-      background: var(--sage);
-      border-radius: 2px;
-      transition: width var(--transition);
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--border-lit), var(--border));
     }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--sage);
-      color: var(--white) !important;
-      padding: 0.45rem 1.2rem;
-      border-radius: 99px;
-      font-size: 0.85rem !important;
-      transition: background var(--transition), transform var(--transition) !important;
+    .connector-arrow {
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--border-lit);
     }
-    .nav-cta:hover { background: #8aad8c !important; transform: translateY(-1px); }
-    .nav-cta::after { display: none !important; }
 
-    /* hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
+    /* ── BASE STEP CARD ─────────────────────── */
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .step.visible { opacity: 1; transform: translateY(0); }
+    .step:hover {
+      border-color: var(--border-lit);
+      box-shadow: 0 0 0 1px var(--border-lit), 0 8px 32px rgba(0,0,0,0.3);
+    }
 
-    /* ── HERO ───────────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
+    /* step header */
+    .step-header {
       display: flex;
       align-items: center;
-      padding: 8rem 2.5rem 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-blobs {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.45;
-      animation: drift 12s ease-in-out infinite alternate;
-    }
-    .blob-1 { width: 520px; height: 520px; background: var(--sage-light); top: -100px; right: -100px; animation-delay: 0s; }
-    .blob-2 { width: 380px; height: 380px; background: var(--peach-light); bottom: -80px; left: -60px; animation-delay: -4s; }
-    .blob-3 { width: 280px; height: 280px; background: var(--sky-light); top: 30%; left: 40%; animation-delay: -8s; }
-
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, -30px) scale(1.05); }
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4rem;
-      align-items: center;
-      width: 100%;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--peach-light);
-      color: #b06a50;
-      border-radius: 99px;
-      padding: 0.3rem 1rem;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .hero-tag::before { content: '●'; font-size: 0.5rem; }
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 1rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-    .hero-name em {
-      font-style: normal;
-      color: var(--sage);
-      position: relative;
-    }
-    .hero-title {
-      font-size: 1.15rem;
-      color: var(--text-mid);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-desc {
-      font-size: 1rem;
-      color: var(--text-soft);
-      max-width: 520px;
-      line-height: 1.75;
-      margin-bottom: 2.2rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.75rem;
-      border-radius: 99px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      font-family: 'Outfit', sans-serif;
+      gap: 0.75rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      user-select: none;
+      transition: background 0.2s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--sage); color: var(--white); box-shadow: 0 4px 16px rgba(181,201,183,0.5); }
-    .btn-primary:hover { background: #8aad8c; box-shadow: 0 6px 24px rgba(181,201,183,0.6); }
-    .btn-ghost { background: transparent; color: var(--text-mid); border: 1.5px solid rgba(0,0,0,0.12); }
-    .btn-ghost:hover { border-color: var(--sage); color: var(--text); }
-
-    .hero-card {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: var(--shadow-lg);
-      text-align: center;
-      min-width: 220px;
-      animation: fadeUp 0.6s 0.5s ease both;
-      border: 1px solid rgba(181,201,183,0.2);
+    .step-header:hover {
+      background: rgba(255,255,255,0.02);
     }
-    .hero-avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--sage-light), var(--peach-light));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--white);
-      margin: 0 auto 1.2rem;
-      box-shadow: 0 4px 16px rgba(181,201,183,0.4);
-    }
-    .hero-card-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .hero-card-role { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 1.2rem; }
-    .hero-badges { display: flex; flex-direction: column; gap: 0.5rem; }
-    .badge {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--cream);
+    .step-icon {
+      width: 32px; height: 32px;
       border-radius: 8px;
-      padding: 0.45rem 0.75rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-mid);
-      border: 1px solid rgba(0,0,0,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
     }
-    .badge-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-    /* ── SECTIONS SHARED ────────────────────────────────── */
-    section { padding: 6rem 2.5rem; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+    .step-meta { flex: 1; min-width: 0; }
+    .step-type {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-soft);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.15rem;
     }
-    .section-label::before { content: ''; display: block; width: 20px; height: 1.5px; background: var(--sage); border-radius: 2px; }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 3rem;
+    .step-name {
+      font-size: 0.92rem;
+      font-weight: 700;
       color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .step-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      border: 1px solid;
+      flex-shrink: 0;
+    }
+    .step-chevron {
+      color: var(--text-soft);
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+    .step.expanded .step-chevron { transform: rotate(180deg); }
+
+    /* step body */
+    .step-body {
+      padding: 1.2rem 1.3rem;
+      max-height: 2000px;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+    }
+    .step:not(.expanded) .step-body {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      opacity: 0;
+    }
+    .step:not(.expanded) .step-header {
+      border-bottom: none;
     }
 
-    /* ── ABOUT ──────────────────────────────────────────── */
-    #about { background: var(--white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+    /* ── TRIGGER (special) ──────────────────── */
+    .trigger-wrap {
+      animation: fadeIn 0.6s 0.2s ease both;
     }
-    .about-text p {
-      font-size: 1.05rem;
+    .trigger { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue-glow), 0 0 30px var(--blue-glow); }
+    .trigger .step-header { background: var(--blue-pale); border-bottom-color: rgba(79,156,249,0.2); }
+    .trigger .step-type { color: var(--blue); }
+    .trigger .step-badge { background: var(--blue-pale); border-color: rgba(79,156,249,0.4); color: var(--blue); }
+    .trigger .step-icon { background: rgba(79,156,249,0.15); }
+
+    .trigger-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.03em;
+    }
+    .trigger-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+    .trigger-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      font-weight: 400;
+    }
+    .trigger-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+    .tlink {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      border: 1px solid var(--border-lit);
+      color: var(--text-mid);
+      background: var(--surface2);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .tlink:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
+    .tlink-primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .tlink-primary:hover { background: #3a88e8; border-color: #3a88e8; color: #fff; }
+
+    /* ── ACTION COLOURS ─────────────────────── */
+    /* green = about */
+    .act-green { border-color: rgba(76,175,130,0.4); }
+    .act-green:hover { border-color: var(--green) !important; box-shadow: 0 0 0 1px rgba(76,175,130,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-green .step-header { background: var(--green-glow); border-bottom-color: rgba(76,175,130,0.15); }
+    .act-green .step-type { color: var(--green); }
+    .act-green .step-badge { background: rgba(76,175,130,0.1); border-color: rgba(76,175,130,0.3); color: var(--green); }
+    .act-green .step-icon { background: rgba(76,175,130,0.12); }
+
+    /* orange = skills */
+    .act-orange { border-color: rgba(240,160,80,0.4); }
+    .act-orange:hover { border-color: var(--orange) !important; box-shadow: 0 0 0 1px rgba(240,160,80,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-orange .step-header { background: var(--orange-glow); border-bottom-color: rgba(240,160,80,0.15); }
+    .act-orange .step-type { color: var(--orange); }
+    .act-orange .step-badge { background: rgba(240,160,80,0.1); border-color: rgba(240,160,80,0.3); color: var(--orange); }
+    .act-orange .step-icon { background: rgba(240,160,80,0.12); }
+
+    /* purple = experience */
+    .act-purple { border-color: rgba(167,139,250,0.4); }
+    .act-purple:hover { border-color: var(--purple) !important; box-shadow: 0 0 0 1px rgba(167,139,250,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-purple .step-header { background: var(--purple-glow); border-bottom-color: rgba(167,139,250,0.15); }
+    .act-purple .step-type { color: var(--purple); }
+    .act-purple .step-badge { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: var(--purple); }
+    .act-purple .step-icon { background: rgba(167,139,250,0.12); }
+
+    /* teal = certs */
+    .act-teal { border-color: rgba(45,212,191,0.4); }
+    .act-teal:hover { border-color: var(--teal) !important; box-shadow: 0 0 0 1px rgba(45,212,191,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-teal .step-header { background: rgba(45,212,191,0.08); border-bottom-color: rgba(45,212,191,0.15); }
+    .act-teal .step-type { color: var(--teal); }
+    .act-teal .step-badge { background: rgba(45,212,191,0.1); border-color: rgba(45,212,191,0.3); color: var(--teal); }
+    .act-teal .step-icon { background: rgba(45,212,191,0.12); }
+
+    /* pink = hobbies */
+    .act-pink { border-color: rgba(244,114,182,0.4); }
+    .act-pink:hover { border-color: var(--pink) !important; box-shadow: 0 0 0 1px rgba(244,114,182,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-pink .step-header { background: rgba(244,114,182,0.07); border-bottom-color: rgba(244,114,182,0.12); }
+    .act-pink .step-type { color: var(--pink); }
+    .act-pink .step-badge { background: rgba(244,114,182,0.1); border-color: rgba(244,114,182,0.3); color: var(--pink); }
+    .act-pink .step-icon { background: rgba(244,114,182,0.12); }
+
+    /* blue = contact */
+    .act-blue { border-color: rgba(79,156,249,0.4); }
+    .act-blue:hover { border-color: var(--blue) !important; box-shadow: 0 0 0 1px rgba(79,156,249,0.2), 0 8px 32px rgba(0,0,0,0.3) !important; }
+    .act-blue .step-header { background: var(--blue-pale); border-bottom-color: rgba(79,156,249,0.15); }
+    .act-blue .step-type { color: var(--blue); }
+    .act-blue .step-badge { background: rgba(79,156,249,0.1); border-color: rgba(79,156,249,0.3); color: var(--blue); }
+    .act-blue .step-icon { background: rgba(79,156,249,0.12); }
+
+    /* ── ABOUT BODY ─────────────────────────── */
+    .about-text {
+      font-size: 0.9rem;
       color: var(--text-mid);
       line-height: 1.8;
-      margin-bottom: 1.2rem;
+      font-weight: 400;
     }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-passions { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-    .passion-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--cream);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.2rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: transform var(--transition), box-shadow var(--transition);
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .passion-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .passion-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .passion-info strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
-    .passion-info span { font-size: 0.8rem; color: var(--text-soft); }
-    .about-stats {
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-kv {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 1.2rem;
+      margin-top: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
     }
-    .stat-card {
-      background: var(--cream);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: transform var(--transition);
-    }
-    .stat-card:hover { transform: translateY(-3px); }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .stat-desc { font-size: 0.82rem; color: var(--text-soft); line-height: 1.4; }
+    .kv-key { color: var(--text-soft); }
+    .kv-val { color: var(--text-mid); }
+    .kv-val a { color: var(--blue); }
+    .kv-val a:hover { text-decoration: underline; }
 
-    /* ── SKILLS ─────────────────────────────────────────── */
-    #skills { background: var(--cream); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-group {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: var(--shadow);
-      transition: transform var(--transition);
-    }
-    .skill-group:hover { transform: translateY(-4px); }
-    .skill-group-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.2rem;
-    }
-    .skill-group-icon {
-      width: 38px; height: 38px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .skill-group-title { font-weight: 600; font-size: 0.95rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-tag {
-      padding: 0.3rem 0.85rem;
-      border-radius: 99px;
-      font-size: 0.78rem;
-      font-weight: 500;
-      border: 1.5px solid transparent;
-      transition: transform var(--transition);
-    }
-    .skill-tag:hover { transform: scale(1.04); }
-
-    /* certifications strip */
-    .certs-strip {
-      margin-top: 3rem;
-      padding: 1.5rem 2rem;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: var(--shadow);
-    }
-    .certs-title { font-weight: 600; font-size: 0.9rem; color: var(--text-mid); margin-bottom: 1rem; letter-spacing: 0.04em; }
-    .certs-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .cert-badge {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--cream);
-      border-radius: 8px;
-      padding: 0.45rem 0.9rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--text-mid);
-      border: 1px solid rgba(0,0,0,0.07);
-    }
-    .cert-badge::before { content: '✓'; color: var(--sage); font-weight: 700; }
-
-    /* ── EXPERIENCE ─────────────────────────────────────── */
-    #experience { background: var(--white); }
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 8px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--sage), var(--peach), var(--sky));
-      border-radius: 2px;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      padding-left: 2rem;
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .timeline-item.visible { opacity: 1; transform: translateX(0); }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      position: absolute;
-      left: -2.55rem;
-      top: 6px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      border: 2px solid var(--white);
-      box-shadow: 0 0 0 2px var(--sage);
-      background: var(--sage);
-    }
-    .timeline-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .timeline-period {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--text-soft);
+    /* ── SKILLS ─────────────────────────────── */
+    .skill-group { margin-bottom: 1.2rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.55rem;
     }
-    .timeline-badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.7rem;
-      border-radius: 99px;
-      background: var(--sage-pale);
-      color: #5a8060;
-    }
-    .timeline-company {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--text);
-    }
-    .timeline-role {
-      font-size: 0.9rem;
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .stag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
       color: var(--text-mid);
-      margin-bottom: 1rem;
-      font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .timeline-body {
-      background: var(--cream);
-      border-radius: var(--radius-sm);
-      padding: 1.2rem 1.4rem;
-      border: 1px solid rgba(0,0,0,0.06);
+    .stag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ── EXPERIENCE TIMELINE ────────────────── */
+    .exp-item { margin-bottom: 1.4rem; padding-bottom: 1.4rem; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.3rem; }
+    .exp-company { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-soft);
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
     }
-    .timeline-bullets { display: flex; flex-direction: column; gap: 0.6rem; }
-    .timeline-bullets li {
-      font-size: 0.88rem;
+    .exp-role { font-size: 0.78rem; color: var(--purple); font-weight: 500; margin-bottom: 0.6rem; font-family: 'JetBrains Mono', monospace; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .exp-bullets li {
+      font-size: 0.83rem;
       color: var(--text-mid);
       line-height: 1.6;
-      padding-left: 1rem;
+      padding-left: 1.1rem;
       position: relative;
     }
-    .timeline-bullets li::before {
-      content: '';
+    .exp-bullets li::before {
+      content: '›';
       position: absolute;
-      left: 0; top: 0.55em;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--sage);
+      left: 0;
+      color: var(--purple);
+      font-weight: 700;
     }
 
-    /* ── CONTACT ────────────────────────────────────────── */
-    #contact {
-      background: var(--cream);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .contact-card {
+    /* ── CERTS ──────────────────────────────── */
+    .cert-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .cert-item {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.8rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      color: var(--text);
-      transition: transform var(--transition), box-shadow var(--transition);
+      gap: 0.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      transition: border-color 0.2s;
     }
-    .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .contact-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
+    .cert-item:hover { border-color: var(--teal); color: var(--text); }
+    .cert-check { color: var(--teal); font-size: 0.8rem; flex-shrink: 0; }
+    .cert-year { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-soft); }
+
+    /* ── HOBBIES ────────────────────────────── */
+    .hobby-grid { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .hobby-card {
+      flex: 1;
+      min-width: 140px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .hobby-card:hover { border-color: var(--pink); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,114,182,0.12); }
+    .hobby-card.no-link:hover { border-color: rgba(244,114,182,0.4); transform: translateY(-2px); }
+    .hobby-emoji { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .hobby-name { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .hobby-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--pink); }
+
+    /* ── CONTACT ────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .contact-item:hover { border-color: var(--blue); background: var(--blue-pale); }
+    .contact-item:hover .ci-label { color: var(--blue); }
+    .ci-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+      font-size: 0.85rem;
       flex-shrink: 0;
     }
-    .contact-card strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
-    .contact-card span { font-size: 0.8rem; color: var(--text-soft); }
+    .ci-label { font-size: 0.8rem; font-weight: 600; color: var(--text); display: block; }
+    .ci-val { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-soft); }
 
-    /* ── FOOTER ─────────────────────────────────────────── */
-    footer {
-      background: var(--white);
-      border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 2rem 2.5rem;
+    /* ── RETURN / DONE NODE ─────────────────── */
+    .done-node {
       text-align: center;
-      font-size: 0.82rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px dashed var(--border-lit);
+      border-radius: var(--radius);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .done-node.visible { opacity: 1; transform: translateY(0); }
+    .done-node-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
       color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+    .done-node-status {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
     }
 
-    /* ── ANIMATIONS ─────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+    /* ── MISC UTILITIES ─────────────────────── */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .page { padding: 2rem 1rem 6rem; }
+      .trigger-name { font-size: 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,248,244,0.97); backdrop-filter: blur(16px); padding: 1.5rem; gap: 1.2rem; border-bottom: 1px solid rgba(181,201,183,0.3); }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-      section { padding: 4rem 1.5rem; }
-      #hero { padding: 7rem 1.5rem 4rem; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
+      .hobby-grid { flex-direction: column; }
     }
   </style>
 </head>
 <body>
+<div class="page">
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-logo">G<span>.</span>Singh</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+  <!-- breadcrumb -->
+  <div class="breadcrumb">
+    <span>Logic App</span>
+    <span class="sep">/</span>
+    gurdev-singh-profile
+    <span class="sep">/</span>
+    workflow.json
+  </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-blobs">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
+  <!-- status bar -->
+  <div class="status-bar">
+    <div class="status-left">
+      <div class="status-dot"></div>
+      <span>Workflow enabled</span>
+      <span style="color:var(--border-lit)">|</span>
+      <span>Run history: Succeeded</span>
     </div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-tag">Open to Opportunities</div>
-        <h1 class="hero-name">Gurdev<br /><em>Singh</em></h1>
-        <p class="hero-title">Senior Integrations Engineer · Melbourne, AU</p>
-        <p class="hero-desc">
-          I design, build and operate Azure-native integration solutions across SaaS, on-prem
-          and cloud systems — helping enterprises achieve secure, scalable and observable
-          integrations in complex domains like casino gaming and hospitality.
+    <div class="status-right">Last run: Just now · Melbourne, AU</div>
+  </div>
+
+  <!-- ═══ TRIGGER — HTTP REQUEST ════════════ -->
+  <div class="trigger-wrap" data-reveal>
+    <div class="step trigger expanded visible">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-icon">⚡</div>
+        <div class="step-meta">
+          <div class="step-type">When an HTTP request is received</div>
+          <div class="step-name">GET /gurdev-singh/about</div>
+        </div>
+        <div class="step-badge">Trigger</div>
+        <div class="step-chevron">▼</div>
+      </div>
+      <div class="step-body">
+        <div class="trigger-name">Gurdev Singh</div>
+        <div class="trigger-title">// Senior Integrations Engineer</div>
+        <p class="trigger-desc">
+          I help organisations get their systems talking to each other. I've spent my career in the unglamorous but critical space where data pipelines are messy and systems refuse to cooperate — and I make them. From <strong>SAP</strong> and <strong>Boomi</strong> to <strong>Workday</strong> and now <strong>Azure Integration Services</strong>, I own integrations end to end — from the first whiteboard session to post-go-live support.
         </p>
-        <div class="hero-actions">
-          <a href="#experience" class="btn btn-primary">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            View Experience
-          </a>
-          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="hero-avatar">GS</div>
-        <div class="hero-card-name">Gurdev Singh</div>
-        <div class="hero-card-role">Senior Integrations Engineer</div>
-        <div class="hero-badges">
-          <div class="badge"><span class="badge-dot" style="background:var(--sage)"></span>Azure Integration Services</div>
-          <div class="badge"><span class="badge-dot" style="background:var(--peach)"></span>MuleSoft Certified</div>
-          <div class="badge"><span class="badge-dot" style="background:var(--sky)"></span>SAP Certified</div>
-          <div class="badge"><span class="badge-dot" style="background:var(--lavender)"></span>Crown Resorts · Melbourne</div>
+        <div class="trigger-links">
+          <a href="mailto:gdevsingh@outlook.com" class="tlink tlink-primary">✉ Email me</a>
+          <a href="https://www.linkedin.com/in/gurd3v/" target="_blank" rel="noopener" class="tlink">in LinkedIn</a>
+          <a href="https://github.com/gdevsing" target="_blank" rel="noopener" class="tlink">⌥ GitHub</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-inner">
-      <div class="section-label">Who I Am</div>
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            As a Senior Integrations Engineer within the casino gaming and hospitality domain,
-            I design, build and operate Azure-native integration solutions aligned with enterprise
-            integration frameworks. I partner closely with business stakeholders, data teams and
-            platform engineers to deliver secure, scalable and observable integrations.
-          </p>
-          <p>
-            With over 8 years of experience spanning SAP, MuleSoft, Workday and Azure Integration
-            Services, I bring a broad perspective to every integration challenge — from greenfield
-            API design to complex legacy system modernisation.
-          </p>
-          <p>
-            I hold a Master of Information Technology from Swinburne University of Technology
-            (majoring in Cloud Computing &amp; Mobile Technologies), where I was awarded the
-            Swinburne International Excellence Scholarship.
-          </p>
+  <div class="connector"><div class="connector-arrow"></div></div>
 
-          <div class="about-passions">
-            <a href="https://www.worldcubeassociation.org/persons/2019SING35" target="_blank" rel="noopener" class="passion-card">
-              <div class="passion-icon" style="background:var(--peach-light); padding: 6px;">
-                <img src="https://assets.worldcubeassociation.org/assets/101fe73/assets/WCA%20Logo-4ef000323c6a9a407cdf07647a31c0ef4dc847f2352a9a136ef3e809e95bdeab.svg" alt="WCA Logo" style="width:32px;height:32px;object-fit:contain;" />
-              </div>
-              <div class="passion-info">
-                <strong>Speedcubing</strong>
-                <span>View my WCA Profile →</span>
-              </div>
-            </a>
-            <a href="https://on.soundcloud.com/cqlgjA0c29W1heLPLS" target="_blank" rel="noopener" class="passion-card">
-              <div class="passion-icon" style="background:var(--sky-light)">🎹</div>
-              <div class="passion-info">
-                <strong>Piano</strong>
-                <span>Listen on SoundCloud →</span>
-              </div>
-            </a>
-          </div>
+  <!-- ═══ ACTION 1 — INITIALIZE ABOUT ══════ -->
+  <div class="step act-green" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">👤</div>
+      <div class="step-meta">
+        <div class="step-type">Action 1 · Initialize Variable</div>
+        <div class="step-name">Set — About me</div>
+      </div>
+      <div class="step-badge">200 OK</div>
+      <div class="step-chevron">▼</div>
+    </div>
+    <div class="step-body">
+      <p class="about-text">
+        Based in <strong>Melbourne</strong> — I'm a Senior Integrations Engineer with <strong>8+ years</strong> of experience designing and building integration solutions across enterprise platforms. I hold a <strong>Master of Information Technology</strong> from Swinburne University of Technology, majoring in Cloud Computing and Mobile Technologies, where I was awarded the Swinburne International Excellence Scholarship.
+      </p>
+      <div class="about-kv">
+        <span class="kv-key">location</span>   <span class="kv-val">Melbourne, VIC 3064 · Australia</span>
+        <!-- <span class="kv-key">email</span>       <span class="kv-val"><a href="mailto:gdevsingh@outlook.com">gdevsingh@outlook.com</a></span> -->
+        <!-- <span class="kv-key">phone</span>       <span class="kv-val">(+61) 481-160-960</span> -->
+        <span class="kv-key">current_role</span><span class="kv-val">Integrations Engineer · Crown Resorts</span>
+        <!-- <span class="kv-key">domain</span>      <span class="kv-val">Casino Gaming &amp; Hospitality</span> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-arrow"></div></div>
+
+  <!-- ═══ ACTION 2 — PARSE SKILLS ═════════ -->
+  <div class="step act-orange" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">🔧</div>
+      <div class="step-meta">
+        <div class="step-type">Action 2 · Parse JSON</div>
+        <div class="step-name">Parse — Skills &amp; Tech Stack</div>
+      </div>
+      <div class="step-badge">Succeeded</div>
+      <div class="step-chevron">▼</div>
+    </div>
+    <div class="step-body">
+
+      <div class="skill-group">
+        <div class="skill-group-label">// Azure Integration Services</div>
+        <div class="skill-tags">
+          <span class="stag">Logic Apps</span>
+          <span class="stag">Service Bus</span>
+          <span class="stag">API Management</span>
+          <span class="stag">Azure Functions</span>
+          <span class="stag">Event Grid</span>
+          <span class="stag">Log Analytics</span>
+          <span class="stag">Liquid / XSLT</span>
+          <span class="stag">KQL</span>
+          <span class="stag">GitHub Copilot</span>
+          <span class="stag">Azure Dashboards</span>
         </div>
+      </div>
 
-        <div class="about-stats">
-          <div class="stat-card" style="border-top: 3px solid var(--sage);">
-            <div class="stat-num" style="color:var(--sage)">8+</div>
-            <div class="stat-desc">Years in integration engineering</div>
-          </div>
-          <div class="stat-card" style="border-top: 3px solid var(--peach);">
-            <div class="stat-num" style="color:#c07a60">5</div>
-            <div class="stat-desc">Industry certifications earned</div>
-          </div>
-          <div class="stat-card" style="border-top: 3px solid var(--sky);">
-            <div class="stat-num" style="color:var(--sky)">4</div>
-            <div class="stat-desc">Enterprise organisations served</div>
-          </div>
-          <div class="stat-card" style="border-top: 3px solid var(--lavender);">
-            <div class="stat-num" style="color:var(--lavender)">∞</div>
-            <div class="stat-desc">APIs designed &amp; delivered</div>
-          </div>
+      <div class="skill-group">
+        <div class="skill-group-label">// Integration Platforms</div>
+        <div class="skill-tags">
+          <span class="stag">MuleSoft</span>
+          <span class="stag">Dell Boomi</span>
+          <span class="stag">SAP Integration Suite</span>
+          <span class="stag">Workday Cloud</span>
+          <span class="stag">GoAnywhere MFT</span>
+          <span class="stag">REST / SOAP</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">// Architecture Patterns</div>
+        <div class="skill-tags">
+          <span class="stag">Event-Driven</span>
+          <span class="stag">Pub-Sub</span>
+          <span class="stag">API-Centric Design</span>
+          <span class="stag">Async Messaging</span>
+          <span class="stag">Batch Integrations</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">// DevOps &amp; Tooling</div>
+        <div class="skill-tags">
+          <span class="stag">Azure DevOps</span>
+          <span class="stag">GitHub Actions</span>
+          <span class="stag">Git</span>
+          <span class="stag">Jira</span>
+          <span class="stag">Confluence</span>
+          <span class="stag">MS Visio</span>
+          <span class="stag">Excalidraw</span>
+          <span class="stag">Draw.io</span>
+          <span class="stag">C#</span>
+          <span class="stag">Java</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-arrow"></div></div>
+
+  <!-- ═══ ACTION 3 — FOR EACH EXPERIENCE ══ -->
+  <div class="step act-purple" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">💼</div>
+      <div class="step-meta">
+        <div class="step-type">Action 3 · For Each</div>
+        <div class="step-name">For each — Work experience</div>
+      </div>
+      <div class="step-badge">4 iterations</div>
+      <div class="step-chevron">▼</div>
+    </div>
+    <div class="step-body">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Crown Resorts</div>
+          <div class="exp-period">Sep 2023 → Present</div>
+        </div>
+        <div class="exp-role">Integrations Engineer · Melbourne</div>
+        <ul class="exp-bullets">
+          <li>Designed and maintained Azure-native integrations (Logic Apps, Service Bus, Functions, APIM, Event Grid) across gaming and hospitality platforms.</li>
+          <li>Implemented event-driven and API-centric patterns; recognised as domain SME for Gaming integrations.</li>
+          <li>Led observability practices — structured logging, monitoring, alerting — and deployed via CI/CD in Azure DevOps.</li>
+          <li>Mentored developers and led design discussions; supported agile delivery and sprint planning.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Wilson Group</div>
+          <div class="exp-period">Jan 2023 → May 2023</div>
+        </div>
+        <div class="exp-role">Integrations Developer · Melbourne</div>
+        <ul class="exp-bullets">
+          <li>Architected and deployed integration solutions using Azure Logic Apps, Service Bus, Functions, Event Grid and APIM.</li>
+          <li>Gathered stakeholder requirements, designed workflows, and provided integration support to minimise downtime.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">KPMG</div>
+          <div class="exp-period">Jun 2022 → Dec 2022</div>
+        </div>
+        <div class="exp-role">Senior Consultant – Integration · Melbourne</div>
+        <ul class="exp-bullets">
+          <li>Led discovery workshops for Workday implementations, uncovering integration requirements across client ecosystems.</li>
+          <li>Built integrations on the Workday Integration Cloud platform and supported functional consultants with solution design.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Discovery Consulting</div>
+          <div class="exp-period">Jun 2018 → Jun 2022</div>
+        </div>
+        <div class="exp-role">Technical Consultant · Melbourne</div>
+        <ul class="exp-bullets">
+          <li>Built and maintained integrations using SAP Integration Suite, SAP SuccessFactors Integration Center and Dell Boomi.</li>
+          <li>Independently gathered client requirements and developed on-prem and hybrid cloud integration solutions.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-arrow"></div></div>
+
+  <!-- ═══ ACTION 4 — VALIDATE CERTS ═══════ -->
+  <div class="step act-teal" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">🏅</div>
+      <div class="step-meta">
+        <div class="step-type">Action 4 · Condition</div>
+        <div class="step-name">Validate — Certifications</div>
+      </div>
+      <div class="step-badge">All passed ✓</div>
+      <div class="step-chevron">▼</div>
+    </div>
+    <div class="step-body">
+      <div class="cert-list">
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          GitHub Copilot – AI-assisted Development
+          <span class="cert-year">2026</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          Microsoft Certified: Azure Fundamentals
+          <span class="cert-year">2023</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          MuleSoft Certified Developer – Level 1 (Mule 4)
+          <span class="cert-year">2022</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          Workday Integration Certification
+          <span class="cert-year">2022</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          SAP Certified – SAP Integration Suite
+          <span class="cert-year">2021</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-check">✓</span>
+          Integration Black Belt – SAP Enterprise Support Value Maps
+          <span class="cert-year">2021</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <div class="section-label">What I Work With</div>
-      <h2 class="section-title">Skills &amp; Tools</h2>
-      <div class="skills-grid">
+  <div class="connector"><div class="connector-arrow"></div></div>
 
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon" style="background:var(--sage-pale)">☁️</div>
-            <span class="skill-group-title">Azure Integration Services</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">Logic Apps</span>
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">Service Bus</span>
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">API Management</span>
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">Azure Functions</span>
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">Event Grid</span>
-            <span class="skill-tag" style="background:var(--sage-pale);color:#4a7050;border-color:var(--sage-light)">Log Analytics</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon" style="background:var(--peach-light)">🔗</div>
-            <span class="skill-group-title">Integration Platforms</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">MuleSoft</span>
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">Dell Boomi</span>
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">SAP Integration Suite</span>
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">Workday Cloud</span>
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">GoAnywhere MFT</span>
-            <span class="skill-tag" style="background:var(--peach-light);color:#9a5a40;border-color:var(--peach)">REST / SOAP APIs</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon" style="background:var(--sky-light)">📐</div>
-            <span class="skill-group-title">Architecture &amp; Patterns</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:var(--sky-light);color:#3a7090;border-color:var(--sky)">Event-Driven</span>
-            <span class="skill-tag" style="background:var(--sky-light);color:#3a7090;border-color:var(--sky)">Pub-Sub</span>
-            <span class="skill-tag" style="background:var(--sky-light);color:#3a7090;border-color:var(--sky)">API-Centric Design</span>
-            <span class="skill-tag" style="background:var(--sky-light);color:#3a7090;border-color:var(--sky)">Async Messaging</span>
-            <span class="skill-tag" style="background:var(--sky-light);color:#3a7090;border-color:var(--sky)">Batch Integrations</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon" style="background:#ede8f5">🛠️</div>
-            <span class="skill-group-title">DevOps &amp; Tooling</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">Azure DevOps</span>
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">GitHub Actions</span>
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">Git</span>
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">Confluence</span>
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">Jira</span>
-            <span class="skill-tag" style="background:#ede8f5;color:#6050a0;border-color:var(--lavender)">C# · Java</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <div class="skill-group-header">
-            <div class="skill-group-icon" style="background:#fef3e8">📦</div>
-            <span class="skill-group-title">Enterprise Systems</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" style="background:#fef3e8;color:#a06020;border-color:#f5d4a0">SAP SuccessFactors</span>
-            <span class="skill-tag" style="background:#fef3e8;color:#a06020;border-color:#f5d4a0">SAP BTP</span>
-            <span class="skill-tag" style="background:#fef3e8;color:#a06020;border-color:#f5d4a0">Workday</span>
-            <span class="skill-tag" style="background:#fef3e8;color:#a06020;border-color:#f5d4a0">MySQL</span>
-          </div>
-        </div>
-
+  <!-- ═══ ACTION 5 — COMPOSE HOBBIES ══════ -->
+  <div class="step act-pink" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">🎲</div>
+      <div class="step-meta">
+        <div class="step-type">Action 5 · Compose</div>
+        <div class="step-name">Compose — When not integrating things</div>
       </div>
-
-      <!-- Certifications -->
-      <div class="certs-strip reveal">
-        <div class="certs-title">🏅 Certifications</div>
-        <div class="certs-list">
-          <div class="cert-badge">Microsoft Azure Fundamentals</div>
-          <div class="cert-badge">MuleSoft Certified Developer – Mule 4</div>
-          <div class="cert-badge">Workday Integration Certification 2022</div>
-          <div class="cert-badge">SAP Certified – SAP Integration Suite</div>
-          <div class="cert-badge">Integration Black Belt – SAP Enterprise Support 2023</div>
+      <div class="step-badge">Off-hours</div>
+      <div class="step-chevron">▼</div>
+    </div>
+    <div class="step-body">
+      <div class="hobby-grid">
+        <a href="https://www.worldcubeassociation.org/persons/2019SING35" target="_blank" rel="noopener" class="hobby-card">
+          <div class="hobby-emoji">
+            <img src="https://assets.worldcubeassociation.org/assets/101fe73/assets/WCA%20Logo-4ef000323c6a9a407cdf07647a31c0ef4dc847f2352a9a136ef3e809e95bdeab.svg" alt="WCA" width="36" height="36" style="margin:0 auto 4px;display:block;" />
+          </div>
+          <div class="hobby-name">Speedcubing</div>
+          <div class="hobby-sub">WCA Profile →</div>
+        </a>
+        <a href="https://on.soundcloud.com/cqlgjA0c29W1heLPLS" target="_blank" rel="noopener" class="hobby-card">
+          <div class="hobby-emoji">🎹</div>
+          <div class="hobby-name">Piano</div>
+          <div class="hobby-sub">SoundCloud →</div>
+        </a>
+        <div class="hobby-card no-link">
+          <div class="hobby-emoji">🌿</div>
+          <div class="hobby-name">Touching Grass</div>
+          <div class="hobby-sub">IRL only</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-inner">
-      <div class="section-label">Career</div>
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
+  <div class="connector"><div class="connector-arrow"></div></div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--sage);box-shadow:0 0 0 2px var(--sage)"></div>
-          <div class="timeline-meta">
-            <span class="timeline-period">Sep 2023 – Present</span>
-            <span class="timeline-badge">Current</span>
-          </div>
-          <div class="timeline-company">Crown Resorts</div>
-          <div class="timeline-role">Integrations Engineer · Melbourne</div>
-          <div class="timeline-body">
-            <ul class="timeline-bullets">
-              <li>Designed, built and maintained Azure-native integrations using Logic Apps, Service Bus, Functions, APIM and Event Grid across gaming and hospitality systems.</li>
-              <li>Applied API-centric and event-driven principles — implementing publish–subscribe, async messaging and contract-based interfaces for loose coupling and scalability.</li>
-              <li>Led observability practices including structured logging, monitoring and alerting using Azure-native tooling to improve incident resolution.</li>
-              <li>Deployed integrations via CI/CD pipelines in Azure DevOps; recognised as the domain subject-matter expert for Gaming integrations.</li>
-              <li>Mentored integration developers and led design discussions, contributing to technical direction and architecture documentation.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--peach);box-shadow:0 0 0 2px var(--peach)"></div>
-          <div class="timeline-meta">
-            <span class="timeline-period">Jan 2023 – May 2023</span>
-          </div>
-          <div class="timeline-company">Wilson Group</div>
-          <div class="timeline-role">Integrations Developer · Melbourne</div>
-          <div class="timeline-body">
-            <ul class="timeline-bullets">
-              <li>Architected, developed and deployed integration solutions using Azure Logic Apps, Service Bus, Functions, Event Grid, APIM and DevOps.</li>
-              <li>Collaborated with stakeholders to gather data integration requirements and designed workflows with efficient data flow and error handling.</li>
-              <li>Provided support and troubleshooting for integration-related issues to minimise system downtime.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--lavender);box-shadow:0 0 0 2px var(--lavender)"></div>
-          <div class="timeline-meta">
-            <span class="timeline-period">Jun 2022 – Dec 2022</span>
-          </div>
-          <div class="timeline-company">KPMG</div>
-          <div class="timeline-role">Senior Consultant – Integration · Melbourne</div>
-          <div class="timeline-body">
-            <ul class="timeline-bullets">
-              <li>Led discovery workshops to uncover integration requirements for Workday implementations across diverse client ecosystems.</li>
-              <li>Built integrations on the Workday Integration Cloud platform and assisted functional consultants with integration design and solution architecture.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--sky);box-shadow:0 0 0 2px var(--sky)"></div>
-          <div class="timeline-meta">
-            <span class="timeline-period">Jun 2018 – Jun 2022</span>
-          </div>
-          <div class="timeline-company">Discovery Consulting</div>
-          <div class="timeline-role">Technical Consultant · Melbourne</div>
-          <div class="timeline-body">
-            <ul class="timeline-bullets">
-              <li>Developed integration solutions using SAP Integration Suite, SAP SuccessFactors Integration Center and Dell Boomi for on-prem and hybrid cloud scenarios.</li>
-              <li>Independently collected and analysed client requirements, building and supporting complex SAP CPI integrations across SuccessFactors and SAP BTP.</li>
-            </ul>
-          </div>
-        </div>
-
+  <!-- ═══ ACTION 6 — SEND RESPONSE ════════ -->
+  <div class="step act-blue" data-reveal>
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-icon">📤</div>
+      <div class="step-meta">
+        <div class="step-type">Action 6 · Send Response</div>
+        <div class="step-name">Respond — Get in touch</div>
       </div>
+      <div class="step-badge">Awaiting input</div>
+      <div class="step-chevron">▼</div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner">
-      <div class="section-label reveal">Get In Touch</div>
-      <h2 class="section-title reveal">Contact</h2>
+    <div class="step-body">
       <div class="contact-grid">
-        <a href="mailto:gdevsingh@outlook.com" class="contact-card reveal">
-          <div class="contact-icon" style="background:var(--peach-light)">📧</div>
+        <a href="mailto:gdevsingh@outlook.com" class="contact-item">
+          <div class="ci-icon">✉</div>
           <div>
-            <strong>Email</strong>
-            <span>gdevsingh@outlook.com</span>
+            <span class="ci-label">Email</span>
+            <span class="ci-val">gdevsingh@outlook.com</span>
           </div>
         </a>
-        <a href="tel:+61481160960" class="contact-card reveal">
-          <div class="contact-icon" style="background:var(--sage-pale)">📱</div>
+        <a href="tel:+61481160960" class="contact-item">
+          <div class="ci-icon">📱</div>
           <div>
-            <strong>Phone</strong>
-            <span>(+61) 481-160-960</span>
+            <span class="ci-label">Phone</span>
+            <span class="ci-val">(+61) 481-160-960</span>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/gurd3v/" target="_blank" rel="noopener" class="contact-card reveal">
-          <div class="contact-icon" style="background:var(--sky-light)">💼</div>
+        <a href="https://www.linkedin.com/in/gurd3v/" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">in</div>
           <div>
-            <strong>LinkedIn</strong>
-            <span>linkedin.com/in/gurd3v</span>
+            <span class="ci-label">LinkedIn</span>
+            <span class="ci-val">linkedin.com/in/gurd3v</span>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/gurd3v/" target="_blank" rel="noopener" class="contact-card reveal" style="background:var(--sage);color:var(--white);border-color:var(--sage)">
-          <div class="contact-icon" style="background:rgba(255,255,255,0.25)">✉️</div>
+        <a href="https://github.com/gdevsing" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">⌥</div>
           <div>
-            <strong style="color:var(--white)">Say Hello</strong>
-            <span style="color:rgba(255,255,255,0.75)">Always open to a good conversation</span>
+            <span class="ci-label">GitHub</span>
+            <span class="ci-val">github.com/gdevsing/span>
           </div>
         </a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Designed &amp; built with care · Gurdev Singh · Melbourne, VIC · 2025</p>
-  </footer>
+  <div class="connector"><div class="connector-arrow"></div></div>
 
-  <script>
-    // Nav scroll shadow
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
+  <!-- ═══ TERMINATE ACTION (END) ═══════════ -->
+  <div class="step act-red expanded" data-reveal style="border-color:#e74c3c;box-shadow:0 0 0 1px rgba(231,76,60,0.18),0 0 30px rgba(231,76,60,0.08);margin-top:0;">
+    <div class="step-header" style="background:rgba(231,76,60,0.08);border-bottom-color:rgba(231,76,60,0.15);">
+      <div class="step-icon" style="background:rgba(231,76,60,0.15);color:#e74c3c;">⏹</div>
+      <div class="step-meta">
+        <div class="step-type" style="color:#e74c3c;">Terminate</div>
+        <div class="step-name" style="color:#e74c3c;">End of Workflow</div>
+      </div>
+      <div class="step-badge" style="background:rgba(231,76,60,0.1);border-color:rgba(231,76,60,0.3);color:#e74c3c;">Terminated</div>
+      <div class="step-chevron" style="color:#e74c3c;">▼</div>
+    </div>
+    <div class="step-body">
+      <div style="font-size:0.95rem;color:#e74c3c;font-weight:600;text-align:center;">Workflow terminated. No further actions will be executed.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Toggle expand/collapse
+  function toggleStep(header) {
+    const step = header.closest('.step');
+    step.classList.toggle('expanded');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
+  }, { threshold: 0.08 });
 
-    // Hamburger
-    function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
-  </script>
-
+  document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.04}s`;
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
