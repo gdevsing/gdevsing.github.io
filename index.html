@@ -603,10 +603,10 @@
     }
     .theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
     @keyframes toggle-pulse {
-      0%, 100% { border-color: var(--border-lit); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-      50%       { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 0 3px var(--blue-glow), 0 2px 8px rgba(0,0,0,0.2); }
+      0%, 100% { border-color: var(--border-lit); box-shadow: 0 2px 8px rgba(0,0,0,0.2); color: var(--text-mid); }
+      50%       { border-color: #f5c842; color: #f5c842; box-shadow: 0 0 0 3px rgba(245,200,66,0.2), 0 0 12px rgba(245,200,66,0.3); }
     }
-    .toggle-hint { animation: toggle-pulse 2s ease-in-out 0.8s 3; }
+    .toggle-hint { animation: toggle-pulse 2s ease-in-out 0.8s infinite; }
 
     /* ── MINIMAL THEME ─────────────────────── */
     body.minimal {
