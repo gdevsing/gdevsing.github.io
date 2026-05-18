@@ -1,24 +1,28 @@
+# gdevsing.github.io
 
-## gdevsing.github.io
+Personal website for [Gurdev Singh](https://gdevsingh.com), Integrations Engineer based in Melbourne, AU.
 
-This repository contains the source code for [gdevsingh.com](https://gdevsingh.com), a personal website and portfolio.
+## About
 
-### Project Overview
-This is a static website built with HTML and hosted via GitHub Pages. It serves as an online portfolio and personal homepage.
+A single-page portfolio styled as an Azure Logic App workflow. Each section (About, Skills, Experience, Certifications, Interests, Contact) is presented as a collapsible workflow action card.
 
-### Features
-- Simple, fast, and mobile-friendly
-- Custom domain support (see CNAME file)
-- Easy to update and maintain
+The page supports two themes, switchable via a toggle button:
 
-### Usage
-To view the website locally, simply open `index.html` in your browser.
+- **Logic App** — dark, developer-themed UI with workflow chrome (connectors, badges, step types)
+- **Minimal** — same dark palette, clean resume layout with no workflow terminology
 
-### Deployment
-All changes pushed to the `main` branch are automatically published via GitHub Pages at [gdevsingh.com](https://gdevsingh.com).
+Theme preference is saved to `localStorage`.
 
-### Custom Domain
-The custom domain is configured via the `CNAME` file. If you wish to change the domain, update the `CNAME` file and your DNS settings accordingly.
+## Stack
 
-### License
-This project is open source. See the repository for details.
+- Plain HTML, CSS, JavaScript — no frameworks, no build step
+- Hosted on GitHub Pages
+- Custom domain via DNS
+
+## Local development
+
+Open `index.html` directly in a browser — no server needed.
+
+## Deploy
+
+Push to `main`. GitHub Pages publishes automatically.
