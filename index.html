@@ -9,7 +9,7 @@
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gurdev Singh — Integrations Engineer</title>
+  <title>Gurdev Singh, Integrations Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -524,9 +524,151 @@
       .step-name { white-space: normal; font-size: 0.82rem; }
       .step-badge { display: none; }
     }
+
+    /* ── THEME TOGGLE BUTTON ───────────────── */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 99px;
+      border: 1px solid var(--border-lit);
+      background: var(--surface);
+      color: var(--text-mid);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.67rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ── MINIMAL THEME ─────────────────────── */
+    body.minimal {
+      --bg:         #0f1117;
+      --surface:    #161b27;
+      --surface2:   #1e2535;
+      --border:     #2a3347;
+      --border-lit: #3d4f6e;
+      --text:       #e2e8f4;
+      --text-mid:   #8b9ab8;
+      --text-soft:  #4a5568;
+      --blue:       #4f9cf9;
+      --blue-glow:  rgba(79,156,249,0.18);
+      --blue-pale:  rgba(79,156,249,0.08);
+      --green:      #4caf82;
+      --green-glow: rgba(76,175,130,0.15);
+      --orange:     #f0a050;
+      --orange-glow:rgba(240,160,80,0.15);
+      --purple:     #a78bfa;
+      --purple-glow:rgba(167,139,250,0.15);
+      --pink:       #f472b6;
+      --teal:       #2dd4bf;
+    }
+    body.minimal::before { display: none; }
+    body.minimal .theme-toggle { box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    body.minimal .breadcrumb,
+    body.minimal .status-bar,
+    body.minimal .connector { display: none !important; }
+    body.minimal .page { padding-top: 3.5rem; }
+
+    /* All steps: flat, always open */
+    body.minimal .step {
+      opacity: 1 !important;
+      transform: none !important;
+      border: none !important;
+      border-bottom: 1px solid var(--border) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+    body.minimal .step:hover {
+      border-color: var(--border) !important;
+      box-shadow: none !important;
+    }
+    body.minimal .step-header {
+      cursor: default;
+      background: transparent !important;
+      border-bottom: none !important;
+      padding: 2rem 0 0.5rem;
+    }
+    body.minimal .step-header:hover { background: transparent !important; }
+    body.minimal .step-icon,
+    body.minimal .step-type,
+    body.minimal .step-badge,
+    body.minimal .step-chevron { display: none !important; }
+    body.minimal .trigger .step-header { display: none !important; }
+    .minimal-label { display: none; }
+    body.minimal .step-name { display: none; }
+    body.minimal .minimal-label {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    body.minimal .la-prefix { display: none; }
+    body.minimal .step-body {
+      max-height: none !important;
+      opacity: 1 !important;
+      padding: 0.2rem 0 2rem !important;
+      transition: none !important;
+    }
+
+    /* Trigger hero */
+    body.minimal .trigger-wrap { animation: none; }
+    body.minimal .trigger {
+      border: none !important;
+      box-shadow: none !important;
+      border-bottom: 2px solid var(--border) !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+    body.minimal .trigger .step-header {
+      background: transparent !important;
+      border: none !important;
+      padding: 0.5rem 0 0.25rem;
+    }
+    body.minimal .trigger-name { font-size: 2.6rem; }
+    body.minimal .trigger-title { color: var(--text-soft); }
+    body.minimal .trigger-desc { color: var(--text-mid); }
+    body.minimal .tlink {
+      background: var(--surface2);
+      border-color: var(--border-lit);
+      color: var(--text-mid);
+    }
+    body.minimal .tlink:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
+
+    /* Skills */
+    body.minimal .stag { background: var(--surface2); border-color: var(--border); color: var(--text-mid); }
+    body.minimal .stag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* Certs */
+    body.minimal .cert-item { background: var(--surface2); border-color: var(--border); }
+
+    /* Hobbies */
+    body.minimal .hobby-card { background: var(--surface2); border-color: var(--border); }
+    body.minimal .hobby-card:hover { box-shadow: 0 4px 12px rgba(219,39,119,0.08); }
+
+    /* Contact */
+    body.minimal .contact-item { background: var(--surface2); border-color: var(--border); }
+    body.minimal .ci-icon { background: var(--surface); border-color: var(--border); }
+
+    /* About kv */
+    body.minimal .about-kv { border-top: 1px solid var(--border); padding-top: 1rem; }
   </style>
 </head>
 <body>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Switch theme">
+  <span class="toggle-icon">⬡</span>
+  <span class="toggle-label">Minimal</span>
+</button>
+
 <div class="page">
 
   <!-- breadcrumb -->
@@ -563,15 +705,10 @@
       </div>
       <div class="step-body">
         <div class="trigger-name">Gurdev Singh</div>
-        <div class="trigger-title">// Senior Integrations Engineer</div>
+        <div class="trigger-title"><span class="la-prefix">// </span>Senior Integrations Engineer</div>
         <p class="trigger-desc">
-          I help organisations get their systems talking to each other. I've spent my career in the unglamorous but critical space where data pipelines are messy and systems refuse to cooperate — and I make them. From <strong>SAP</strong> and <strong>Boomi</strong> to <strong>Workday</strong> and now <strong>Azure Integration Services</strong>, I own integrations end to end — from the first whiteboard session to post-go-live support.
+          I get systems talking to each other, which sounds simple until you're knee-deep in mismatched data formats and APIs that weren't designed to play nice. I've been doing this for over eight years across <strong>SAP</strong>, <strong>Boomi</strong>, <strong>Workday</strong>, and now <strong>Azure Integration Services</strong>, and I genuinely enjoy the problem-solving side of it. I take things from the first conversation all the way through to go-live and beyond.
         </p>
-        <div class="trigger-links">
-          <a href="mailto:gdevsingh@outlook.com" class="tlink tlink-primary">✉ Email me</a>
-          <a href="https://www.linkedin.com/in/gurd3v/" target="_blank" rel="noopener" class="tlink">in LinkedIn</a>
-          <a href="https://github.com/gdevsing" target="_blank" rel="noopener" class="tlink">⌥ GitHub</a>
-        </div>
       </div>
     </div>
   </div>
@@ -584,14 +721,15 @@
       <div class="step-icon">👤</div>
       <div class="step-meta">
         <div class="step-type">Action 1 · Initialize Variable</div>
-        <div class="step-name">Set — About me</div>
+        <div class="step-name">Set: About me</div>
+        <div class="minimal-label">About</div>
       </div>
       <div class="step-badge">200 OK</div>
       <div class="step-chevron">▼</div>
     </div>
     <div class="step-body">
       <p class="about-text">
-        Based in <strong>Melbourne</strong> — I'm a Senior Integrations Engineer with <strong>8+ years</strong> of experience designing and building integration solutions across enterprise platforms. I hold a <strong>Master of Information Technology</strong> from Swinburne University of Technology, majoring in Cloud Computing and Mobile Technologies, where I was awarded the Swinburne International Excellence Scholarship.
+        Based in <strong>Melbourne</strong>. I'm a Senior Integrations Engineer with <strong>8+ years</strong> of experience designing and building integration solutions across enterprise platforms. I hold a <strong>Master of Information Technology</strong> from Swinburne University of Technology, majoring in Cloud Computing and Mobile Technologies, where I was awarded the Swinburne International Excellence Scholarship.
       </p>
       <div class="about-kv">
         <span class="kv-key">location</span>   <span class="kv-val">Melbourne, VIC 3064 · Australia</span>
@@ -611,7 +749,8 @@
       <div class="step-icon">🔧</div>
       <div class="step-meta">
         <div class="step-type">Action 2 · Parse JSON</div>
-        <div class="step-name">Parse — Skills &amp; Tech Stack</div>
+        <div class="step-name">Parse: Skills &amp; Tech Stack</div>
+        <div class="minimal-label">Skills &amp; Tech Stack</div>
       </div>
       <div class="step-badge">Succeeded</div>
       <div class="step-chevron">▼</div>
@@ -619,7 +758,7 @@
     <div class="step-body">
 
       <div class="skill-group">
-        <div class="skill-group-label">// Azure Integration Services</div>
+        <div class="skill-group-label"><span class="la-prefix">// </span>Azure Integration Services</div>
         <div class="skill-tags">
           <span class="stag">Logic Apps</span>
           <span class="stag">Service Bus</span>
@@ -635,7 +774,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">// Integration Platforms</div>
+        <div class="skill-group-label"><span class="la-prefix">// </span>Integration Platforms</div>
         <div class="skill-tags">
           <span class="stag">MuleSoft</span>
           <span class="stag">Dell Boomi</span>
@@ -647,7 +786,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">// Architecture Patterns</div>
+        <div class="skill-group-label"><span class="la-prefix">// </span>Architecture Patterns</div>
         <div class="skill-tags">
           <span class="stag">Event-Driven</span>
           <span class="stag">Pub-Sub</span>
@@ -658,7 +797,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">// DevOps &amp; Tooling</div>
+        <div class="skill-group-label"><span class="la-prefix">// </span>DevOps &amp; Tooling</div>
         <div class="skill-tags">
           <span class="stag">Azure DevOps</span>
           <span class="stag">GitHub Actions</span>
@@ -684,7 +823,8 @@
       <div class="step-icon">💼</div>
       <div class="step-meta">
         <div class="step-type">Action 3 · For Each</div>
-        <div class="step-name">For each — Work experience</div>
+        <div class="step-name">For each: Work experience</div>
+        <div class="minimal-label">Experience</div>
       </div>
       <div class="step-badge">4 iterations</div>
       <div class="step-chevron">▼</div>
@@ -700,7 +840,7 @@
         <ul class="exp-bullets">
           <li>Designed and maintained Azure-native integrations (Logic Apps, Service Bus, Functions, APIM, Event Grid) across gaming and hospitality platforms.</li>
           <li>Implemented event-driven and API-centric patterns; recognised as domain SME for Gaming integrations.</li>
-          <li>Led observability practices — structured logging, monitoring, alerting — and deployed via CI/CD in Azure DevOps.</li>
+          <li>Led observability practices including structured logging, monitoring and alerting, deployed via CI/CD in Azure DevOps.</li>
           <li>Mentored developers and led design discussions; supported agile delivery and sprint planning.</li>
         </ul>
       </div>
@@ -752,7 +892,8 @@
       <div class="step-icon">🏅</div>
       <div class="step-meta">
         <div class="step-type">Action 4 · Condition</div>
-        <div class="step-name">Validate — Certifications</div>
+        <div class="step-name">Validate: Certifications</div>
+        <div class="minimal-label">Certifications</div>
       </div>
       <div class="step-badge">All passed ✓</div>
       <div class="step-chevron">▼</div>
@@ -801,7 +942,8 @@
       <div class="step-icon">🎲</div>
       <div class="step-meta">
         <div class="step-type">Action 5 · Compose</div>
-        <div class="step-name">Compose — When not integrating things</div>
+        <div class="step-name">Compose: When not integrating things</div>
+        <div class="minimal-label">Interests</div>
       </div>
       <div class="step-badge">Off-hours</div>
       <div class="step-chevron">▼</div>
@@ -820,11 +962,6 @@
           <div class="hobby-name">Piano</div>
           <div class="hobby-sub">SoundCloud →</div>
         </a>
-        <div class="hobby-card no-link">
-          <div class="hobby-emoji">🌿</div>
-          <div class="hobby-name">Touching Grass</div>
-          <div class="hobby-sub">IRL only</div>
-        </div>
       </div>
     </div>
   </div>
@@ -837,7 +974,8 @@
       <div class="step-icon">📤</div>
       <div class="step-meta">
         <div class="step-type">Action 6 · Send Response</div>
-        <div class="step-name">Respond — Get in touch</div>
+        <div class="step-name">Respond: Get in touch</div>
+        <div class="minimal-label">Contact</div>
       </div>
       <div class="step-badge">Awaiting input</div>
       <div class="step-chevron">▼</div>
@@ -859,7 +997,7 @@
           </div>
         </a>
         <a href="https://github.com/gdevsing" target="_blank" rel="noopener" class="contact-item">
-          <div class="ci-icon">⌥</div>
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div>
           <div>
             <span class="ci-label">GitHub</span>
             <span class="ci-val">github.com/gdevsing</span>
@@ -895,13 +1033,31 @@
 </div>
 
 <script>
-  // Toggle expand/collapse
+  // Toggle expand/collapse (disabled in minimal mode)
   function toggleStep(header) {
+    if (document.body.classList.contains('minimal')) return;
     const step = header.closest('.step');
     step.classList.toggle('expanded');
   }
 
-  // Scroll reveal
+  // Theme switcher
+  function toggleTheme() {
+    const isMinimal = document.body.classList.toggle('minimal');
+    localStorage.setItem('theme', isMinimal ? 'minimal' : 'logicapp');
+    document.querySelector('.toggle-label').textContent = isMinimal ? 'Logic App' : 'Minimal';
+    document.querySelector('.toggle-icon').textContent  = isMinimal ? '◈' : '⬡';
+  }
+
+  // Restore saved theme
+  (function () {
+    if (localStorage.getItem('theme') === 'minimal') {
+      document.body.classList.add('minimal');
+      document.querySelector('.toggle-label').textContent = 'Logic App';
+      document.querySelector('.toggle-icon').textContent  = '◈';
+    }
+  })();
+
+  // Scroll reveal (logic app mode only)
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
