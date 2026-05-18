@@ -602,6 +602,11 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
+    @keyframes toggle-pulse {
+      0%, 100% { border-color: var(--border-lit); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+      50%       { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 0 3px var(--blue-glow), 0 2px 8px rgba(0,0,0,0.2); }
+    }
+    .toggle-hint { animation: toggle-pulse 2s ease-in-out 0.8s 3; }
 
     /* ── MINIMAL THEME ─────────────────────── */
     body.minimal {
@@ -1110,14 +1115,21 @@
     localStorage.setItem('theme', isMinimal ? 'minimal' : 'logicapp');
     document.querySelector('.toggle-label').textContent = isMinimal ? 'Logic App' : 'Minimal';
     document.querySelector('.toggle-icon').textContent  = isMinimal ? '◈' : '⬡';
+    document.querySelector('.theme-toggle').classList.remove('toggle-hint');
   }
 
-  // Restore saved theme
+  // Default to minimal unless user previously chose logic app
   (function () {
-    if (localStorage.getItem('theme') === 'minimal') {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'logicapp') {
+      document.body.classList.remove('minimal');
+      document.querySelector('.toggle-label').textContent = 'Minimal';
+      document.querySelector('.toggle-icon').textContent  = '⬡';
+    } else {
       document.body.classList.add('minimal');
       document.querySelector('.toggle-label').textContent = 'Logic App';
       document.querySelector('.toggle-icon').textContent  = '◈';
+      document.querySelector('.theme-toggle').classList.add('toggle-hint');
     }
   })();
 
